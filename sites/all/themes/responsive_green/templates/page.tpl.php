@@ -194,7 +194,7 @@
       </div>
    <?php endif; ?>
     <div id="copyright">
-     <p class="copyright"><?php print t('Copyright'); ?> &copy; <?php echo date("Y"); ?>, <?php print $site_name; ?> </p> <p class="credits"> <?php print t('Designed and developed by'); ?>  <a href="http://about.me/ankithinglajia" target="_blank">Ankit Hinglajia</a></p>
+     <p class="copyright"><?php print t('Copyright'); ?> &copy; <?php echo date("Y"); ?>, <?php print $site_name; ?> </p> <p class="credits"> <?php print t('Designed and developed by'); ?>  <a href="https://co.linkedin.com/in/eduardo-ruiz-ayala-84aa4647" target="_blank">Eduardo Ruiz Ayala</a></p>
     <div class="clear"></div>
     </div>
   </div>
