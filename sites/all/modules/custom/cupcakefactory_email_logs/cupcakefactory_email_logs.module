@@ -1,0 +1,28 @@
+<?php
+
+/**
+ * Implements hook_mail_alter.
+ */
+function cupcakefactory_email_logs_mail_alter(&$message) {
+ 	// function to log the emails
+	_cupcakefactory_email_logs_log($message);
+ 
+}
+ 
+function _cupcakefactory_email_logs_log($message){
+	global $user;
+	$node = new stdClass();
+	$node->title = $message['to'];
+	$node->type = "email_logs";
+	node_object_prepare($node); // Sets some defaults. Invokes hook_prepare() and hook_node_prepare().
+	$node->language = LANGUAGE_NONE; // Or e.g. 'en' if locale is enabled
+	$node->uid = $user->uid; 
+	$node->status = 1; //(1 or 0): published or not
+	$node->promote = 0; //(1 or 0): promoted to front page
+	$node->comment = 0; // 0 = comments disabled, 1 = read only, 2 = read/write
+	$node->body[LANGUAGE_NONE][0]['value'] = $message['body'][0];
+	$node->field_subject[LANGUAGE_NONE][0]['value'] = $message['subject'];
+	$node->field_sent_time[LANGUAGE_NONE][0]['value'] = REQUEST_TIME;
+	$node = node_submit($node); // Prepare node for saving
+	node_save($node);
+}
