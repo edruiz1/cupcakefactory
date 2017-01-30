@@ -1,0 +1,43 @@
+Welcome to my cupcakefactory site,
+
+this site is made as a drupal test site.
+
+1. Download all the code from this site to your development environment.
+2. Make sure your environment has the following php modules enabled:
+	- rewrite
+3. create a virtualhost for your environment and make sure to add the following:
+	<VirtualHost *:80>
+	        ServerName cupcakefactory.local
+	        ServerAlias cupcakefactory.local
+	        ServerAdmin ruizeduardo8506@gmail.com
+	        DocumentRoot /var/www/html/cupcakefactory
+	        <Directory /var/www/html/cupcakefactory>
+	                Options FollowSymLinks
+	                AllowOverride All
+	        </Directory>
+	</VirtualHost>
+4. restart apache by entering the following command:
+	sudo service apache2 restart
+5. add server name to your hosts file (/etc/hosts):
+	127.0.1.1       cupcakefactory.local
+6. restore the database contained in the database folder.
+7. access your new site by entering the following address in your browser:
+	http://cupcakefactory.local/
+
+
+Additional information:
+
+- Administration user & password:
+	user: admin
+	pass: admin
+
+- Employee user & password:
+	user: employee
+	pass: employee
+
+- Access reports:
+	http://cupcakefactory.local/admin/commerce/reports
+
+- Access orders:
+	http://cupcakefactory.local/admin/commerce/orders
+
